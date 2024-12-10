@@ -70,26 +70,15 @@ export const useCalculadora = () =>{
         setNumeroAnterior(numero);
         setNumero('0');
     }
-
-    const operacionDividir = () => {
+    const establecerOperacion = (operador: Operadores) => {
         establecerUltimoNumero();
-        UltimaOperacion.current = Operadores.dividir;
-    }
+        UltimaOperacion.current = operador;
+    };
+    const operacionDividir = () => establecerOperacion(Operadores.dividir);
+    const operacionMultiplicar = () => establecerOperacion(Operadores.multiplicar);
+    const operacionRestar = () => establecerOperacion(Operadores.restar);
+    const operacionSumar = () => establecerOperacion(Operadores.sumar);
 
-    const operacionMultiplicar = () => {
-        establecerUltimoNumero();
-        UltimaOperacion.current = Operadores.multiplicar;
-    }
-
-    const operacionRestar = () => {
-        establecerUltimoNumero();
-        UltimaOperacion.current = Operadores.restar;
-    }
-
-    const operacionSumar = () => {
-        establecerUltimoNumero();
-        UltimaOperacion.current = Operadores.sumar;
-    }
 
     const calcularResultado = () => {
         const [primerValor, operacion, segundoValor] = formula.split(' ');
