@@ -4,6 +4,7 @@ Proyecto Calculadora
 Pedro Galera Fernandez
 
 INSTRUCCIONES:
+
 1.Acceder a Visual Studio Code
 
 2. Clonar Repositorio
