@@ -1,29 +1,31 @@
 import { Pressable, Text, StyleSheet } from "react-native";
+import { colores } from "../themes/colors";
+import { globalStyles } from "../themes/globalStyles";
+import { tamanios } from "../themes/tamanios";
 
 interface Props {
-    label: string,
-    width: number,
+    label: string;
+    width: number;
+    type: 'numero' | 'operacion' | 'otro';
+    size?: 'pequeno' | 'mediano' | 'grande'; // Tamaño del botón
     onPress?: () => void;
 }
 
-export const BotonOperacion = ({label, width, onPress}:Props) => {
+export const BotonOperacion = ({ label, type, size = 'mediano', onPress }: Props) => {
+    
+    const width = size === 'pequeno' ? tamanios.botonPequeno :
+                  size === 'grande' ? tamanios.botonGrande :
+                  tamanios.botonMediano;
+
+    const backgroundColor =
+        type === 'numero' ? colores.botonNumeroColor :
+        type === 'operacion' ? colores.botonOperacionColor :
+        colores.botonOtroColor;
+
     return (
-        <Pressable>
-            <Text 
-                style={[styles.boton, {width}]}
-                onPress={onPress}>{label}</Text>
+        <Pressable style={[globalStyles.BotonOperacion, { width, backgroundColor }]} onPress={onPress}>
+            <Text style={globalStyles.text}>{label}</Text>
         </Pressable>
-    )
+    );
 };
 
-const styles = StyleSheet.create({
-    boton: {
-        width:80,
-        textAlign: 'center',
-        padding: 10,
-        fontSize: 30,
-        fontWeight: 300,
-        borderColor: 'black',
-        borderWidth: 2,
-    }
-  });
