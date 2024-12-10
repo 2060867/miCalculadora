@@ -7,7 +7,7 @@ INSTRUCCIONES:
 1.Acceder a Visual Studio Code
 
 2. Clonar Repositorio
-3. 
+
 3.Introducir el enlace de este repositorio
 
 4.Navegar hasta el directorio del proyecto
